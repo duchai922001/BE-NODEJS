@@ -48,14 +48,14 @@ module.exports = {
 
       //tạo ra token => lưu token
       const token = jwt.sign(
-        { userId: user._id, isAdmin: user.isAdmin },
+        { userId: user._id, isAdmin: user.isAdmin }, //data muốn lưu vào token (decoded)
         process.env.JWT_SECRET,
         { expiresIn: "7d" } //xử lý hạn sử dụng token s, m, h, d
       ); //tạo ra token
       const { password, ...otherDetails } = user._doc;
       {
       } //key: value
-      return res.cookie("token", token, { httpOnly: true }).json({
+      return res.cookie("access_token", token, { httpOnly: true }).json({
         success: true,
         message: "Đăng nhập thành công",
         user: { ...otherDetails },
