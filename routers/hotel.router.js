@@ -9,4 +9,6 @@ router.post(
   HotelController.createHotel
 ); ///api/create-hotel,
 router.get("/get-hotel", HotelController.getHotel);
+router.delete("/delete-hotel/:id", HotelController.deleteHotel);
+router.patch("/update-hotel/:id", HotelController.updateHotel);
 module.exports = router;
